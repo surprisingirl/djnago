@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block breadcrumb %}
+  <li class="breadcrumb-item"><a href="{% url 'home' %}">Main view</a></li>
+  <li class="breadcrumb-item active">{{ recipe.title }}</li>
+{% endblock %}
+
+{% block content %}
+
+ 
+  <div class="cards">
+        <p>{{ recipe.description }}</p>
+
+        <p>{{ recipe.ingredients }}</p>
+    </div>
+  
+
+
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block breadcrumb %}
+  <li class="breadcrumb-item active">Stressed is desserts spelled backwards</li>
+{% endblock %}
+
+{% block content %}
+<div class="mb-4">
+   
+    <a href="{% url 'new_category'%}" class="btn btn-primary">New category</a> 
+  </div>
+  <table class="table">
+    <thead class="thead-inverse">
+      <tr>
+        <th>Category</th>
+      
+      </tr>
+    </thead>
+    <tbody>
+      {% for category in categories %}
+        <tr>
+          <td>
+            <a href="{% url 'category' category.pk %}">{{ category.title }}</a>
+            <small class="text-muted d-block">{{ category.description }}</small>
+          </td>
+          
+          <td></td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
