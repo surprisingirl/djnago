@@ -4,11 +4,14 @@
 
 {% block breadcrumb %}
   <li class="breadcrumb-item"><a href="{% url 'home' %}">Main view</a></li>
+  
   <li class="breadcrumb-item active">New recipe</li>
 {% endblock %}
 
 {% block content %}
+
   <form method="post">
+    <input type="hidden" id="category" name="category" value="{{ category_pk }}">
     {% csrf_token %}
     <div class="form-group">
       <label for="id_title">Title</label>

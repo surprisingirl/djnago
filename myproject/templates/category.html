@@ -31,7 +31,10 @@
 {% else %}
   <p>No recipes.</p>
 {% endif %}
-<a href="{% url 'new_recipe'%}" class="btn btn-primary">New recipe</a> 
+
+<a href="{% url 'new_recipe'%}?category={{category.pk}}" class="btn btn-primary">New recipe</a> 
+
+
 {% endblock %}
 
 

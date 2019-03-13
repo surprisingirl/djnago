@@ -11,6 +11,6 @@ class Recipe(models.Model):
     title =models.CharField(max_length=30, unique=True) 
     ingredients=models.TextField(max_length=290)
     description=models.TextField(max_length=10000)
-    category = models.ForeignKey(Category, null=True,related_name='category',on_delete=models.CASCADE,)
+    category = models.ForeignKey(Category, null=True,related_name='category',on_delete=models.CASCADE)
     def __str__(self):
         return self.title

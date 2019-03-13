@@ -21,7 +21,7 @@ def recipe(request, pk):
 
 
 def new_category(request):
-   # category=get_object_or_404(Category)
+   
 
     if request.method =='POST':
         title= request.POST['title']
@@ -30,27 +30,29 @@ def new_category(request):
         category= Category.objects.create(
             title= title,
             description = description        
-        )        
+        )  
 
         return redirect('category', pk=category.pk)
-    
     return render(request, 'new_category.html')
 
     
-def new_recipe(request, pk):
-  #  recipe=get_object_or_404(Recipe)
+def new_recipe(request):
     if request.method =='POST':
         title= request.POST['title']
         ingredients= request.POST['ingredients']
         description= request.POST['description']
-       
+        category_pk = request.POST['category']
+        category =Category.objects.get(pk=int(category_pk))
+        
         recipe= Recipe.objects.create(
             title= title,
             ingredients= ingredients,
             description = description, 
-            category = pk  
+            category = category
         )        
-
         return redirect('recipe', pk=recipe.pk)
-
-    return render(request, 'new_recipe.html', {'recipe': recipe, 'category': category})
+    
+    id = int(request.GET.get('category'))
+    
+    return render(request, 'new_recipe.html', {'category_pk': id})
+  

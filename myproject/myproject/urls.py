@@ -29,5 +29,6 @@ urlpatterns = [
     url(r'recipe/new', views.new_recipe, name='new_recipe'),
 
 
+
     
 ]
