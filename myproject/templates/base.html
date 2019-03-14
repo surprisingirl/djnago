@@ -6,6 +6,7 @@
     <link href="https://fonts.googleapis.com/css?family=Source+Serif+Pro" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/app.css' %}">
+    <link rel="stylesheet" href="{% static 'css/dropdown.css' %}">
   </head>
   <body>
 
@@ -22,6 +23,7 @@
       </ol>
       {% block content %}
       {% endblock %}
+      <script src="{% static 'js/dropdown.js' %}"></script>
     </div>
   </body>
 </html>
