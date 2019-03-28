@@ -14,3 +14,4 @@ class Recipe(models.Model):
     category = models.ForeignKey(Category, null=True,related_name='category',on_delete=models.CASCADE)
     def __str__(self):
         return self.title
+

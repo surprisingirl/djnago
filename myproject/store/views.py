@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Category, Recipe
 
+
 def home(request):
     categories = Category.objects.all()
     return render(request, 'home.html', {'categories': categories})
@@ -26,6 +27,7 @@ def new_category(request):
     if request.method =='POST':
         title= request.POST['title']
         description= request.POST['description']
+        
        
         category= Category.objects.create(
             title= title,
@@ -44,6 +46,8 @@ def new_recipe(request):
         category_pk = request.POST['category']
         category =Category.objects.get(pk=int(category_pk))
         
+
+        
         recipe= Recipe.objects.create(
             title= title,
             ingredients= ingredients,
@@ -51,8 +55,14 @@ def new_recipe(request):
             category = category
         )        
         return redirect('recipe', pk=recipe.pk)
+
     
     id = int(request.GET.get('category'))
+ 
     
-    return render(request, 'new_recipe.html', {'category_pk': id})
+
+    categories = Category.objects.all()
   
+
+    return render(request, 'new_recipe.html', {'categories': categories, 'category_pk': id})
+    

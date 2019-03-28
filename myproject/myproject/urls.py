@@ -21,14 +21,16 @@ from django.conf.urls import url
 
 urlpatterns = [
     url(r'^$', views.home, name='home'),
-    
+   
     url(r'^category/(?P<pk>\d+)/', views.category, name='category'),
     url(r'category/new', views.new_category, name='new_category'),
-
     url(r'recipe/(?P<pk>\d+)/', views.recipe, name='recipe'),
     url(r'recipe/new', views.new_recipe, name='new_recipe'),
-
+    
+    
+   
+]
+   
 
 
     
-]
